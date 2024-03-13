@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+// import { StyleSheet, Text, View } from 'react-native';
+// import Splash from './cookside/splash';
+// import GetStarted from './cookside/getStarted';
+// import SignUp from './cookside/signup';
+// import SignIn from './cookside/signIn';
+// import Subscribe from './cookside/subscribe';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+// export default function App() {
+//   return (
+//     <View style={{ width: "100%", height: "100%" }}>
+//        {/* <View style={{flex:1}}>
+//         <Splash/> 
+//       </View>  */}
+//       {/* <View> */}
+//         {/* <GetStarted /> */}
+//         {/* <SignUp /> */}
+//         {/* <SignIn /> */}
+//         {/* <Subscribe /> */}
+//       {/* </View> */}
+//       {/* <StatusBar style="auto" /> */}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+//     </View>
+//   );
+// }
+
+
