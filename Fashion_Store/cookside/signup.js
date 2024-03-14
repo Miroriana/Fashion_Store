@@ -2,6 +2,9 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'reac
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import { FIREBASE_AUTH } from '../firebaseConfig';
+import { FIREBASE_APP } from '../firebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp({ navigation }) {
     const [email, setEmail] = useState('');
@@ -44,9 +47,21 @@ export default function SignUp({ navigation }) {
         } return valid
     }
 
+    const auth = FIREBASE_AUTH;
     const handleSubmit = async () => {
         if (validForm() === true) {
             navigation.navigate("signIn")
+               try {
+        const response = await createUserWithEmailAndPassword(auth, email, password);
+        console.log(response);
+        console.log('created user successfully');
+        
+      } catch (error) {
+        console.log(error);
+        
+      }finally{
+        navigation.navigate('signIn');
+      }
         }
     }
 
@@ -78,7 +93,7 @@ export default function SignUp({ navigation }) {
                 <TextInput style={{ backgroundColor: "whitesmoke", width: "95%", padding: 7, borderRadius: 10, borderWidth: 1, borderColor: "#EB9800" }} secureTextEntry={passwordVisible} onChangeText={(cp) => { setConfirmPassword(cp) }}></TextInput>
                 {confirmPasswordError ? <Text style={{ color: 'red', paddingTop: 2 }}>{confirmPasswordError}</Text> : null}
             </View>
-            <TouchableOpacity onPress={()=>handleSubmit()} style={{ backgroundColor: "#EB9800", width: "91%", marginBottom: 100, display: "flex", justifyContent: "center", alignSelf: "center", borderRadius: 30, marginTop: 30 }}>
+            <TouchableOpacity onPress={() => handleSubmit()} style={{ backgroundColor: "#EB9800", width: "91%", marginBottom: 100, display: "flex", justifyContent: "center", alignSelf: "center", borderRadius: 30, marginTop: 30 }}>
                 <Text style={{ color: "white", padding: 12, textAlign: "center", fontWeight: '400' }}>Sign Up</Text>
             </TouchableOpacity>
 

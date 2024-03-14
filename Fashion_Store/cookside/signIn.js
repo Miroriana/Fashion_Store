@@ -1,8 +1,11 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import {useState} from 'react';
+import { useState } from 'react';
+import { FIREBASE_AUTH } from '../firebaseConfig';
+import { FIREBASE_APP } from '../firebaseConfig';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-export default function SignIn({navigation}) {
+export default function SignIn({ navigation }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -43,9 +46,17 @@ export default function SignIn({navigation}) {
         } return valid
     }
 
+    const auth = FIREBASE_AUTH;
     const handleSubmit = async () => {
         if (validForm() === true) {
-            navigation.navigate("homes")
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                navigation.navigate("homes")
+            } catch (error) {
+                console.log(error.code);
+
+            }
+
         }
     }
 
@@ -70,13 +81,13 @@ export default function SignIn({navigation}) {
                 {confirmPasswordError ? <Text style={{ color: 'red', paddingTop: 2 }}>{confirmPasswordError}</Text> : null}
 
             </View>
-            <TouchableOpacity onPress={()=>handleSubmit()} style={{ backgroundColor: "#EB9800", width: "91%", display: "flex", justifyContent: "center", alignSelf: "center", borderRadius: 30, marginTop: 30 }}>
+            <TouchableOpacity onPress={() => handleSubmit()} style={{ backgroundColor: "#EB9800", width: "91%", display: "flex", justifyContent: "center", alignSelf: "center", borderRadius: 30, marginTop: 30 }}>
                 <Text style={{ color: "white", padding: 12, textAlign: "center", fontWeight: '400' }}>Sign In</Text>
             </TouchableOpacity>
-            <View style={{display:"flex",flexDirection:"row",marginTop:10,justifyContent:"center"}}>
+            <View style={{ display: "flex", flexDirection: "row", marginTop: 10, justifyContent: "center" }}>
                 <Text>If you don't have an account please </Text>
-                <TouchableOpacity onPress={()=>navigation.navigate('signUp')}>
-                    <Text style={{ color: "#EB9800",fontSize:16}}>SignUp</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('signUp')}>
+                    <Text style={{ color: "#EB9800", fontSize: 16 }}>SignUp</Text>
                 </TouchableOpacity>
             </View>
 
