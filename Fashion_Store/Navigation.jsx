@@ -4,9 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Feather } from 'react-native-vector-icons';
 import Home from './bottomNavs/Home';
 import Search from './bottomNavs/Search';
-import Bookmark from './bottomNavs/Bookmark';
+import bookmark from './bottomNavs/bookmark';
 import Profile from './bottomNavs/Profile';
-
+import Details from './bottomNavs/Details'
 
 
 const Stack = createNativeStackNavigator();
@@ -41,7 +41,7 @@ const MyTabs = () => {
       >
         <Tabs.Screen name="home" component={Home} options={{ headerShown: false }} />
         <Tabs.Screen name="search" component={Search} options={{ headerShown: false }} />
-        <Tabs.Screen name="bookmark" component={Bookmark} options={{ headerShown: false }} />
+        <Tabs.Screen name="bookmark" component={bookmark} options={{ headerShown: false }} />
         <Tabs.Screen name="profile" component={Profile} options={{ headerShown: false }} />
       </Tabs.Navigator>
     );
@@ -51,6 +51,7 @@ export default function Navigation() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="home" component={MyTabs} options={{ headerShown: false }} />
+                <Stack.Screen name="More" component={Details} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     );
