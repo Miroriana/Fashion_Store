@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Dimensions, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
@@ -7,7 +6,7 @@ import BookmarkComponent from './Bookmark.jsx';
 // const [recentPicture, setRecentPicture] = useState([]);
 
 
-const Bookmark = () => {
+ export const Bookmark = () => {
         const { height, width } = Dimensions.get('screen');
     //     //fetching pictures in bookmarked
     //     useEffect(() => {
@@ -69,15 +68,5 @@ const Bookmark = () => {
     )
 }
 
-export default Bookmark;
 
-=======
-import React from 'react'
-import { Text, View } from 'react-native'
 
-export default function bookmark() {
-  return (
-    <View><Text>bookmark</Text></View>
-  )
-}
->>>>>>> 0f00c77be3f4063aeba1da0c082e0dba0ac0484a
