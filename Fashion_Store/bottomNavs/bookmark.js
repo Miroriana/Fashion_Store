@@ -1,10 +1,36 @@
 
+import { Dimensions, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { StatusBar } from 'expo-status-bar';
+import { TextInput } from 'react-native-paper';
+import BookmarkComponent from './Bookmark.jsx';
+// const [recentPicture, setRecentPicture] = useState([]);
+
+
 // import { Dimensions, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native'
 // import React, { useEffect, useState } from 'react'
 // import { StatusBar } from 'expo-status-bar';
 // import { TextInput } from 'react-native-paper';
 // import BookmarkComponent from './Bookmark.jsx';
 // // const [recentPicture, setRecentPicture] = useState([]);
+
+
+ export const Bookmark = () => {
+        const { height, width } = Dimensions.get('screen');
+    //     //fetching pictures in bookmarked
+    //     useEffect(() => {
+    //         const fetchPictures = async () => {
+    //             const url = "www.themealdb.com/api/json/v1/1/search.php?f=a"
+    //             try {
+    //                 const responses = await fetch(url);
+    //                 const data = await responses.json();
+    //                 setRecentPicture(data.meals);
+    //             } catch (error) {
+    //                 console.log("error fetching recent pictures", error);
+    //             }
+    //         };
+    //         fetchPictures();
+    //     }, [])
 
 
 // export default function Bookmark() {
@@ -62,6 +88,7 @@
 //                 </View>
 
 
+
 //                 <View>
 //                 </View>
 //             </View>
@@ -70,3 +97,4 @@
 //         </>
 //     )
 // }
+
