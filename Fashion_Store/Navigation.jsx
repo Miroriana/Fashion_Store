@@ -1,25 +1,23 @@
-
+import * as  React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Feather } from 'react-native-vector-icons';
 import Home from './bottomNavs/Home';
-
-import search from './bottomNavs/search';
-import profile from './bottomNavs/profile';
+import Search from './bottomNavs/Search';
+import Profile from './bottomNavs/Profile'
 import GetStarted from './cookside/getStarted';
 import Splash from './cookside/splash';
 import SignIn from './cookside/signIn';
 import SignUp from './cookside/signup';
-import { Bookmark } from './bottomNavs/bookmark';
+import  Bookmark  from './bottomNavs/bookmark';
 
 
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
 
-const Stack = createNativeStackNavigator();
-const Tabs = createBottomTabNavigator();
+
 
  const MyTabs = () => {
   return (
@@ -48,10 +46,10 @@ const Tabs = createBottomTabNavigator();
         headerShown: false,
       })}
     >
-      <Tabs.Screen name="home" component={Home} options={{ headerShown: false }} />
-      <Tabs.Screen name="search" component={search} options={{ headerShown: false }} />
-      <Tabs.Screen name="bookmark" component={Bookmark} options={{ headerShown: false }} />
-      <Tabs.Screen name="profile" component={profile} options={{ headerShown: false }} />
+      <Tabs.Screen name="home" component={Home} options={{ headerShown: false }}/>
+      <Tabs.Screen name="search" component={Search} options={{ headerShown: false }}/>
+    //   <Tabs.Screen name="bookmark" component={Bookmark} options={{ headerShown: false }}/>
+      <Tabs.Screen name="profile" component={Profile} options={{ headerShown: false }} />
     </Tabs.Navigator>
   );
 };
