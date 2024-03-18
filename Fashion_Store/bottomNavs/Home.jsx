@@ -4,12 +4,12 @@ import { View, Text, Dimensions, TouchableOpacity, ScrollView, TextInput, FlatLi
 import { MaterialIcons, MaterialCommunityIcons } from 'react-native-vector-icons'
 import Popular from '../Components/Popular'
 import Foryou from '../Components/Foryou'
-import Categories from '../Components/Categories'
+import Rounded from '../Components/Rounded'
 
 const width = Dimensions.get('screen').width
 const height = Dimensions.get('screen').height
 
-export default function Home() {
+export default function Home({navigation}) {
 
     const [horiRecipes, setHoriRecipes] = useState([]);
     const [vertiRecipes, setVertiRecipes] = useState([]);
@@ -17,7 +17,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchRecipes = async () => {
-            const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=c';
+            const url = 'https://www.themealdb.com/api/json/v1/1/search.php?f=m';
             try {
                 const response = await fetch(url);
                 const data = await response.json();
@@ -80,7 +80,7 @@ export default function Home() {
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     {horiRecipes.map(recipe => (
                         <View key={recipe.idMeal} style={{ marginRight: 15 }}>
-                            <Popular image={recipe.strMealThumb} category={recipe.strCategory} meal={recipe.strMeal} />
+                            <Popular image={recipe.strMealThumb} meal={recipe.strMeal} onpress={() => navigation.navigate('More',)} />
                         </View>
                     ))}
                 </ScrollView>
@@ -93,7 +93,7 @@ export default function Home() {
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     {breakRecipes.map(recipe => (
                         <View key={recipe.idMeal}>
-                            <Categories image={recipe.strMealThumb} />
+                            <Rounded image={recipe.strMealThumb} />
                             <Text style={{ color: 'white' }}></Text>
                         </View>
                     ))}
@@ -104,7 +104,7 @@ export default function Home() {
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                         {vertiRecipes.map(recipe => (
                             <View key={recipe.idMeal} style={{ width: '50%' }}>
-                                <Foryou image={recipe.strMealThumb} meal={recipe.strMeal} />
+                                <Foryou image={recipe.strMealThumb} meal={recipe.strMeal} onpress={() => navigation.navigate('More',)} />
                             </View>
                         ))}
                     </View>
@@ -115,3 +115,4 @@ export default function Home() {
 
     )
 }
+

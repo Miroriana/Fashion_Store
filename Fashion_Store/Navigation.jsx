@@ -1,3 +1,4 @@
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -11,6 +12,9 @@ import SignIn from './cookside/signIn';
 import SignUp from './cookside/signup';
 import { Bookmark } from './bottomNavs/bookmark';
 
+
+// const Stack = createNativeStackNavigator();
+// const Tabs = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -63,3 +67,4 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
