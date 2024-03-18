@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Feather } from 'react-native-vector-icons';
 import Home from './bottomNavs/Home';
+
 import search from './bottomNavs/search';
 import profile from './bottomNavs/profile';
 import GetStarted from './cookside/getStarted';
@@ -13,8 +14,9 @@ import SignUp from './cookside/signup';
 import { Bookmark } from './bottomNavs/bookmark';
 
 
-// const Stack = createNativeStackNavigator();
-// const Tabs = createBottomTabNavigator();
+
+const Stack = createNativeStackNavigator();
+const Tabs = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -67,4 +69,5 @@ export default function Navigation() {
     </NavigationContainer>
   );
 }
+
 
